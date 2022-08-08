@@ -1,0 +1,79 @@
+{% include 'base.html' %}
+{% include 'cust_dash.html' %}
+
+{% block content %}
+<style>
+    .container{
+        margin-top: 50px;
+    }
+   
+</style>
+<body>
+    <div class="jumbotron text-center">
+        <h1>My Service Bookings</h1>
+    </div>
+    <div class="container">
+            <div class="text-center">
+                    <h3>My Vehicles</h3>    
+                </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Vehicle Reg.No</th>
+                    <th scope="col">Vehicle Model</th>
+                    <th scope="col">Vehicle Type</th>
+                </tr>
+            </thead>
+            {% for booking in booking_list %}
+            <tbody>
+                <tr>
+                    <td>{{booking.id}}</td>
+                    <td>{{booking.vehicle_reg_no}}</td>
+                    <td>{{booking.vehicle_name}}</td>
+                    <td>{{booking.vehicle_type}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+                <h3>My Services</h3>
+            </div>
+        <table class="table">
+            <thead>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type of Service</th>
+                    <th scope="col">Service Description</th>
+                    <th scope="col">Booking Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Finish Date</th>
+
+
+            </thead>
+            {% for service in service_list %}
+            <tbody>
+                <tr>
+                        <td>{{service.id}}</td>
+                        <td>{{service.type_of_service}}</td>
+                        <td>{{service.service_desc}}</td>
+                        <td>{{service.start_date}}</td>
+                        <td>{{service.ser_status}}</td>
+                        <td>{{service.finish_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        <!--Insert Data Modal End-->
+        <div class="foot">
+        <div class="bg-dark text-center text-white py-1">
+            <footer>
+                <div class="mt-3">
+                    <p>PETROL PUMP &copy;2022</p>
+                </div>
+            </footer>
+        </div>
+    </div></div>
+    <!--Container End-->
+</body>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% include 'login.html' %}
+{% block content %}
+<style>
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #3766e7, #c0593a);
+}
+    .box {
+    width: 600px;
+    padding: 40px;
+    position: absolute;
+    top: 70%;
+    left: 32%;
+    background: #f5edd3;
+
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px;
+    border-radius: 30px;
+    border: 2px solid #e2a285;
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #a439eb;
+    padding: 10px 10px;
+    width: 400px;
+    outline: none;
+    color: rgb(228, 208, 208);
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h2 {
+    color: rgb(92, 104, 158);
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 350px;
+    border-color: #e64521
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #30ec3a;
+    color: rgb(236, 219, 219);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #57d65d;
+  }
+  button[type=submit] {
+    width: 100%;
+    background-color: #2fdd29;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border-radius: 24px;
+    height: 49px;
+  }
+
+
+</style>
+<div style="margin:0 auto;width:75%;text-align:left">
+    
+        <form action="{% url 'cust-log' %}" method="POST" style="width:500px;margin:auto" class="box">
+            <div class="form-group">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">GET IN PLEASE </h2> <br>
+            {{cust_log.as_p}}
+            <br>
+            <button type="submit" class="btn btn-success"><b>Login</b></button>
+            {{msg}}
+            </div>
+        </form>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% include "footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% include 'base.html' %}
+{% include 'ser_dash.html' %}
+{% block content %}
+<style>
+    .container{
+        margin-top: 50px;
+    }
+</style>
+<body>
+    <div class="jumbotron text-center">
+        <h1><u>Fuel Bookings</u> </h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Service_id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <!--<th scope="col">Address</th>-->
+                <th scope="col">Vehicle RegNo</th>
+                <th scope="col">Vehicle Model</th>
+                <!--<th scope="col">Vehicle Type</th>-->
+                <th scope="col">Fuel Type</th>
+                <th scope="col">Fuel Quantity</th>
+                <th scope="col">Service Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        {% for s in ser %}
+        <tbody>
+            <tr>
+                <td>{{s.id}}</td>
+                <td>{{s.ss.first_name}}</td>
+                <td>{{s.ss.cust_phone}}</td>
+               <!-- <td>{{s.ss.address}}</td>-->
+                <td>{{s.veh.vehicle_reg_no}}</td>
+                <td>{{s.veh.vehicle_name}}</td>
+                <!--<td>{{s.veh.vehicle_type}}</td>-->
+                <td>{{s.type_of_fuel}}</td>
+                <td>{{s.fuel_qua}}</td>
+                <td>{{s.ser_status}}</td>
+                <td>
+                    <a
+                    href="updatefuel_view/{{s.id }}" class="btn btn-success">UPDATE</a>
+                    <a
+                    href="{% url 'deletefuelservice-view' s.id %}" class="btn btn-danger">REVOKE</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!--<div class="jumbotron text-center">
+        <a class="btn btn-primary btn-lg" href="" role="button">home</a>
+    </div>--><br><br>
+    <div class="bg-dark text-center text-white py-1">
+        <footer>
+            <div class="mt-3">
+                <p>PETROL PUMP &copy;2022</p>
+            </div>
+        </footer>
+    </div>
+</body>
+{% endblock %}

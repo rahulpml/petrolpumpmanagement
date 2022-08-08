@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive Homepage design with Bootstrap 4 and Animate css</title>
+	<link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <style>
+.carousel-item {
+	height: 100vh;
+	min-height: 300px;
+}
+.carousel-caption {
+	bottom: 220px;
+}
+.carousel-caption h5 {
+	font-size: 45px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: 25px;
+	font-family: merienda;
+	color: beige;
+	background-color: rgb(175, 143, 206);
+}
+.carousel-caption p {
+	width: 60%;
+	margin: auto;
+	font-size: 18px;
+	line-height: 1.9;
+	font-family: poppins;
+}
+.carousel-caption a {
+	text-transform: uppercase;
+	background: #262626;
+	padding: 10px 30px;
+	display: inline-block;
+	color: #fff;
+	margin-top: 15px;
+}
+.navbar{
+	width: 100%;
+	height: 90px;
+	background-color: rgb(26, 22, 27);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" >
+        <a class="navbar-brand" href="#" style="font-weight: bold;"> Petrol Pump</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url 'customerdashboard-view' %}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{% url 'cust-profile' %}">MyProfile</a>
+
+            <a class="nav-item nav-link" href="{% url 'create-fuelbooking' %}">Book Fuel</a>
+            <a class="nav-item nav-link" href="{% url 'fuelbookings-view' %}">My Fuel Bookings</a>
+            <a class="nav-item nav-link" href="{% url 'create-booking' %}">BookService</a>
+            <a class="nav-item nav-link" href="{% url 'bookings-view' %}">My Bookings</a>
+            <ul class ="nav navbar-nav navbar-right">
+                <p style="color: red ">Logged In As {{ user.username }}</p></ul>
+              <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+    
+          </div>
+        </div>
+      </nav>
+	
+	<div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+		<ol class="carousel-indicators">
+			<li class="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
+			<li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
+			<li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img alt="First slide" class="d-block w-100" src="https://fundcare.in/wp-content/uploads/2018/01/Petrol-Pump....jpg">
+				<div class="carousel-caption d-none d-md-block">
+					<h5 class="animated bounceInRight" style="animation-delay: 1s">Petrol Pump Managment</h5>
+					<p class="animated bounceInLeft" style="animation-delay: 2s">WEelcome to the home of vehicles</p>
+					<p class="animated bounceInRight" style="animation-delay: 3s"><a href="#">More Info</a></p>
+				</div>
+		
+			</div>
+			<div class="carousel-item">
+				<img alt="Second slide" class="d-block w-100" src="https://media.istockphoto.com/photos/petrol-pump-filling-nozzles-picture-id1294015692?b=1&k=20&m=1294015692&s=170667a&w=0&h=ss0uTgfEosaPg2gjsyQEeqRl7haWYFvTBbu4UnGQ660=">
+				<div class="carousel-caption d-none d-md-block">
+					<h5 class="animated slideInDown" style="animation-delay: 1s">Services</h5>
+					<p class="animated fadeInUp" style="animation-delay: 2s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+					<p class="animated zoomIn" style="animation-delay: 3s"><a href="#">More Info</a></p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img alt="Third slide" class="d-block w-100" src="https://as1.ftcdn.net/v2/jpg/04/87/03/34/1000_F_487033406_yt3jyPTqeAZS3jRN7zdWhjyFB1sVP3hk.jpg">
+				<div class="carousel-caption d-none d-md-block">
+					<h5 class="animated zoomIn" style="animation-delay: 1s">Shop Here</h5>
+					<p class="animated fadeInLeft" style="animation-delay: 2s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+					<p class="animated zoomIn" style="animation-delay: 3s"><a href="#">More Info</a></p>
+				</div>
+			</div>
+		</div><a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+	</script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+	</script> 
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+	</script>
+	    <!--footer-->
+		  <div class="bg-dark text-center text-white py-1">
+			  <footer>
+				  <div class="mt-3">
+					  <p>PETROL PUMP &copy;2022</p>
+				  </div>
+			  </footer>
+		  </div>
+	  </div>
+	  <!--Container End-->
+</body>
+</html>

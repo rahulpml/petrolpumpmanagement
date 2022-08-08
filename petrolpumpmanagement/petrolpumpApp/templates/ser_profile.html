@@ -1,0 +1,44 @@
+{% include 'base.html' %}
+{% include 'ser_dash.html' %}
+
+{% block content %}
+<style>
+    .container{
+        padding-top: 50px;
+        
+    }
+    .box{
+        border: 2px solid;
+    }
+    .card-body{
+        border: 2px solid;
+        background-color: rgb(243, 197, 136);
+    
+    }
+
+</style>
+<center>
+<div class="container">
+        <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                        <form action="card" class="box"></form>
+                        <h1>MY PROFILE</h1>
+                        <p>Username: {{user}}</p>
+                        <p>ServiceStation Name: {{user.servicestation.station_name}}</p>
+                        <p>Email: {{user.servicestation.email}}</p>
+                        <p>Phone no: {{user.servicestation.ss_phone}}</p>
+                        <p>Address: {{user.servicestation.address}}</p>
+                    </form>
+              </div>
+</div>
+</center>
+<br><br><br><br>
+<div class="bg-dark text-center text-white py-1">
+  <footer>
+      <div class="mt-3">
+          <p>PETROL PUMP &copy;2022</p>
+      </div>
+  </footer>
+</div>
+</div>
+{% endblock %}

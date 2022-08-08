@@ -1,0 +1,35 @@
+{% include 'base.html' %}
+{% block body %}
+<style>
+  .navbar{
+	width: 100%;
+	height: 90px;
+	background-color: rgb(26, 22, 27);
+}
+</style>
+<body style="background-color: rgb(158, 179, 159);">
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#" style="font-weight: bold;"> Petrol Pump </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{% url 'customerdashboard-view' %}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="{% url 'cust-profile' %}">MyProfile</a>
+        <a class="nav-item nav-link" href="{% url 'create-fuelbooking' %}">Book Fuel</a>
+        <a class="nav-item nav-link" href="{% url 'fuelbookings-view' %}"> Fuel Bookings</a>
+        <a class="nav-item nav-link" href="{% url 'create-booking' %}">Book Service</a>
+        <a class="nav-item nav-link" href="{% url 'bookings-view' %}"> Service Bookings</a>
+       
+        <ul class ="nav navbar-nav navbar-right">
+          <p style="color: red ">Logged In As {{ user.username }}</p>
+        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a> </ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+</body>
+{% endblock %}

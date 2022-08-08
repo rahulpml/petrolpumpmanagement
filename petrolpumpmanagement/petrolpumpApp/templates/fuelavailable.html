@@ -1,0 +1,40 @@
+{% include 'base.html' %}
+{% include 'ser_dash.html' %}
+{% block content %}
+<style>
+    .container{
+        margin-top: 50px;
+    }
+</style>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Fuel Available</h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Sl No</th>
+                <th scope="col">Supplier Name</th>
+                <th scope="col">Available Fuel</th>
+                <th scope="col">Tanker No</th>
+                <th scope="col">Available Quantity</th>
+                
+            </tr>
+        </thead>
+        {% for s in tank %}
+        <tbody>
+            <tr>
+                <td>{{s.id}}</td>
+                <td>{{s.supplier.name}}</td>
+                <td>{{s.fueltype.fueltype}}</td>
+                <td>{{s.tanker_no}}</td>
+                <td>{{s.quantity}}</td>
+              
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+
+</body>
+{% endblock %}

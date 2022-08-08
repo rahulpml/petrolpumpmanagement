@@ -1,0 +1,89 @@
+{% include 'login.html' %}
+
+{% block content %}
+<style>
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #3766e7, #1d1002);
+}
+    .box {
+    width: 600px;
+    padding: 40px;
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    background: #d8c0c0;
+
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px;
+    border-radius: 30px;
+    border: 2px solid #65b9b9;
+    
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 400px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h2 {
+    color: rgb(158, 92, 92);
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 350px;
+    border-color: #db6334
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 10px 50px;
+    outline: none;
+    color: white;
+    border-radius: 20px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box input[type="submit"]:hover {
+    background: #2ecc71
+}
+</style>
+<div style="margin:0 auto;width:75%;text-align:left">
+        <form action="{% url 'ser-log' %}" method="POST" style="width:500px;margin:auto" class="box">
+            <div class="form-group">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Administrator Login:</h2>
+            {{ser_log.as_p}}
+            <button type="submit" class="btn btn-success">Login</button>
+            {{msg}}
+            </div>
+        </form>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% include "footer.html" %}
+{% endblock %}
